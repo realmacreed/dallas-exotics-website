@@ -626,10 +626,12 @@ img { max-width: 100%; display: block; }
   .hero__bg, .vehicle-card__img { will-change: auto; }
   .nav__links.open {
     display: flex; flex-direction: column;
-    position: fixed; top: var(--nav-h); left: 0; right: 0;
-    background: rgba(5,5,5,0.98);
+    position: fixed; top: var(--nav-h); left: 0; right: 0; width: 100%;
+    background: #050505;
     padding: 28px 24px; gap: 24px;
     border-top: 1px solid var(--border-w);
+    z-index: 1001;
+    transform: translateZ(0);
   }
   .nav__links.open a { font-size: 1rem; }
   .nav__burger { display: flex; }
