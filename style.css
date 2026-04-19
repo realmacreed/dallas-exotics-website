@@ -76,6 +76,7 @@ img { max-width: 100%; display: block; }
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   height: var(--nav-h);
+  padding-top: env(safe-area-inset-top);
   transition: background var(--trans), box-shadow var(--trans);
 }
 .nav.scrolled {
@@ -106,7 +107,8 @@ img { max-width: 100%; display: block; }
 .nav__burger {
   display: none; flex-direction: column; gap: 5px;
   background: none; border: none; cursor: pointer;
-  padding: 4px; margin-left: auto;
+  padding: 10px; margin-left: auto;
+  min-width: 44px; min-height: 44px; justify-content: center; align-items: center;
 }
 .nav__burger span {
   display: block; width: 22px; height: 1.5px;
@@ -117,6 +119,7 @@ img { max-width: 100%; display: block; }
 /* ── HERO ── */
 .hero {
   position: relative; height: 100vh; min-height: 680px;
+  height: 100dvh;
   display: flex; align-items: center; justify-content: center;
   text-align: center; overflow: hidden;
 }
@@ -256,6 +259,7 @@ img { max-width: 100%; display: block; }
   position: sticky;
   top: var(--nav-h);
   height: calc(100vh - var(--nav-h));
+  height: calc(100dvh - var(--nav-h));
   background: var(--ink);
   border-right: 1px solid var(--border-w);
   display: flex; flex-direction: column;
@@ -350,7 +354,8 @@ img { max-width: 100%; display: block; }
 }
 .vehicle-card__price em { font-style: normal; font-family: var(--ff-body); font-size: 0.62rem; font-weight: 400; color: var(--smoke); }
 .vehicle-card__ctas { display: flex; gap: 8px; margin-top: auto; padding-top: 4px; }
-.btn--half { flex: 1; justify-content: center; padding: 11px 10px; }
+.btn--half { flex: 1; justify-content: center; padding: 11px 10px; min-height: 44px; }
+.btn, .nav__burger, .phone-car, .nav__links a { -webkit-tap-highlight-color: transparent; }
 
 /* phone mockup */
 .phone-glow {
@@ -407,10 +412,6 @@ img { max-width: 100%; display: block; }
 }
 .phone-lock__date { font-size: 0.68rem; color: rgba(255,255,255,0.35); letter-spacing: 0.14em; text-transform: uppercase; }
 .phone-lock__brand { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-.phone-lock__monogram {
-  font-family: var(--ff-disp); font-size: 3.2rem; font-weight: 700;
-  color: var(--gold); letter-spacing: 0.2em;
-}
 .phone-lock__tagline { font-size: 0.62rem; color: rgba(255,255,255,0.3); letter-spacing: 0.14em; text-transform: uppercase; }
 .phone-lock__slider { width: 100%; }
 .phone-lock__track {
@@ -619,8 +620,10 @@ img { max-width: 100%; display: block; }
 @media (max-width: 768px) {
   :root { --nav-h: 72px; }
   .container { padding: 0 20px; }
+  .logo__emblem { height: 56px; }
   .nav__center { position: static; }
   .nav__links, .nav__cta { display: none; }
+  .hero__bg, .vehicle-card__img { will-change: auto; }
   .nav__links.open {
     display: flex; flex-direction: column;
     position: fixed; top: var(--nav-h); left: 0; right: 0;
@@ -639,6 +642,8 @@ img { max-width: 100%; display: block; }
 @media (max-width: 480px) {
   .fleet__list-pane { grid-template-columns: 1fr; }
   .hero__headline { font-size: 2.8rem; }
+  .hero__actions { flex-direction: column; align-items: center; }
+  .hero__actions .btn { width: 100%; justify-content: center; }
   .phone-frame { width: 280px; }
   .phone-screen { height: 520px; }
 }

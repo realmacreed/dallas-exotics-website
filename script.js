@@ -103,21 +103,18 @@ window.addEventListener('pagehide', () => clearInterval(clockInterval), { once: 
 const phoneCars = document.querySelectorAll('.phone-car');
 
 let activeCar = phoneCars[0] || null;
-let syncFromScroll = true; // prevent scroll observer from overriding phone click
 
 phoneCars.forEach(car => {
   car.addEventListener('click', () => {
     if (activeCar) activeCar.classList.remove('active');
     car.classList.add('active');
     activeCar = car;
-    const carNum = car.dataset.car;
   });
 });
 
-// ── BIDIRECTIONAL SYNC — scroll position → phone active state ──
+// ── SCROLL → PHONE ACTIVE STATE SYNC ──
 const vehicleCards = document.querySelectorAll('.vehicle-card');
 const cardObserver = new IntersectionObserver(entries => {
-  if (!syncFromScroll) return;
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
     const num = entry.target.dataset.num;
