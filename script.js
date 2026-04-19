@@ -111,12 +111,6 @@ phoneCars.forEach(car => {
     car.classList.add('active');
     activeCar = car;
     const carNum = car.dataset.car;
-    const fleetVehicle = document.querySelector(`.vehicle-card[data-num="${carNum}"]`);
-    if (fleetVehicle) {
-      syncFromScroll = false;
-      fleetVehicle.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(() => { syncFromScroll = true; }, 800);
-    }
   });
 });
 

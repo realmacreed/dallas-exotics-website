@@ -89,7 +89,7 @@ img { max-width: 100%; display: block; }
   position: relative;
 }
 .nav__logo { color: var(--gold); flex-shrink: 0; }
-.logo__emblem { height: 60px; width: auto; display: block; }
+.logo__emblem { height: 80px; width: auto; display: block; }
 .nav__center {
   position: absolute; left: 50%; transform: translateX(-50%);
   display: flex; align-items: center; gap: 20px;
