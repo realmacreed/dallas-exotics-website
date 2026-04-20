@@ -8,8 +8,10 @@ const progress = document.getElementById('progress');
 const vehicleImgWraps = [];
 
 let scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+let viewportH = window.innerHeight;
 window.addEventListener('resize', () => {
   scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+  viewportH = window.innerHeight;
 }, { passive: true });
 
 let rafPending = false;
@@ -25,7 +27,7 @@ function onScroll() {
 
     // Skip hovered elements so CSS hover transition runs without JS overwriting it.
     if (parallaxEnabled && vehicleImgWraps.length) {
-      const vh = window.innerHeight;
+      const vh = viewportH;
       for (const { wrap, img, hovered } of vehicleImgWraps) {
         if (hovered) continue;
         const rect = wrap.getBoundingClientRect();
