@@ -658,7 +658,7 @@ img { max-width: 100%; display: block; }
 .vehicle-card__img--mystery::before {
   content: 'COMING SOON';
   position: absolute;
-  top: 14px;
+  bottom: 14px;
   left: 14px;
   font-family: 'Inter', sans-serif;
   font-size: 8px;
