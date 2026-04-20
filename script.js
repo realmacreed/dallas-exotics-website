@@ -7,6 +7,11 @@ const burgerSpans = burger.querySelectorAll('span');
 const progress = document.getElementById('progress');
 const vehicleImgWraps = [];
 
+let scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+window.addEventListener('resize', () => {
+  scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+}, { passive: true });
+
 let rafPending = false;
 function onScroll() {
   if (rafPending) return;
@@ -14,9 +19,8 @@ function onScroll() {
   requestAnimationFrame(() => {
     rafPending = false;
     const scrolled = window.scrollY;
-    const total = document.documentElement.scrollHeight - window.innerHeight;
 
-    progress.style.width = (scrolled / total * 100) + '%';
+    progress.style.width = (scrolled / scrollTotal * 100) + '%';
     nav.classList.toggle('scrolled', scrolled > 60);
 
     // Skip hovered elements so CSS hover transition runs without JS overwriting it.
@@ -138,7 +142,7 @@ if (tickerTrack) {
 }
 
 if (parallaxEnabled) {
-  document.querySelectorAll('.vehicle-card__img').forEach(img => {
+  document.querySelectorAll('.vehicle-card__img:not(.vehicle-card__img--mystery)').forEach(img => {
     const wrap = img.closest('.vehicle-card__img-wrap');
     const entry = { wrap, img, hovered: false };
     vehicleImgWraps.push(entry);
@@ -159,15 +163,16 @@ if (phoneLock && phoneLockThumb && phoneLockTrack) {
   const label = phoneLockTrack.querySelector('.phone-lock__label');
   let dragging = false, startX = 0, currentX = 0;
   const getMax = () => phoneLockTrack.offsetWidth - phoneLockThumb.offsetWidth - 10;
+  const getClientX = e => e.touches ? e.touches[0].clientX : e.clientX;
 
   function lockDragStart(e) {
     dragging = true;
-    startX = (e.touches ? e.touches[0].clientX : e.clientX) - currentX;
+    startX = getClientX(e) - currentX;
     phoneLockThumb.style.transition = 'none';
   }
   function lockDragMove(e) {
     if (!dragging) return;
-    const x = (e.touches ? e.touches[0].clientX : e.clientX) - startX;
+    const x = getClientX(e) - startX;
     currentX = Math.max(0, Math.min(x, getMax()));
     phoneLockThumb.style.transform = `translateX(${currentX}px)`;
     label.style.opacity = Math.max(0, 1 - (currentX / getMax()) * 1.8);
