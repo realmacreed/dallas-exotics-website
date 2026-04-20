@@ -326,8 +326,9 @@ img { max-width: 100%; display: block; }
   flex: 1; display: flex; flex-direction: column; gap: 10px;
 }
 .vehicle-card__name {
-  font-family: var(--ff-disp);
-  font-size: clamp(1.3rem, 1.8vw, 1.75rem);
+  font-family: var(--ff-body);
+  font-size: clamp(1.1rem, 1.6vw, 1.45rem);
+  letter-spacing: 0.02em;
   font-weight: 700; line-height: 1.05;
   color: var(--white);
 }
@@ -656,10 +657,19 @@ img { max-width: 100%; display: block; }
 }
 
 /* ── MYSTERY CARS ── */
+.vehicle-card--mystery { align-self: start; }
+.vehicle-card--mystery .vehicle-card__bar,
+.vehicle-card--mystery .vehicle-card__overlay { display: none; }
+.vehicle-card--mystery .vehicle-card__body,
+.vehicle-card--mystery .vehicle-card__ctas { display: none; }
+
 .vehicle-card__img--mystery {
-  background: linear-gradient(160deg, #0c0c0c 0%, #161616 100%);
+  background: linear-gradient(135deg, #1c1c1c 0%, #0a0a0a 50%, #1c1c1c 100%);
+  filter: blur(14px) brightness(1.3);
+  transform: scale(1.12);
 }
-.vehicle-card__img--mystery::after {
+
+.vehicle-card--mystery .vehicle-card__img-wrap::after {
   content: 'COMING SOON';
   position: absolute;
   top: 50%;
@@ -670,13 +680,13 @@ img { max-width: 100%; display: block; }
   font-weight: 600;
   letter-spacing: 4px;
   color: var(--gold);
-  opacity: 0.5;
+  opacity: 0.6;
+  z-index: 5;
   pointer-events: none;
+  white-space: nowrap;
   transition: opacity 0.4s ease;
 }
-.vehicle-card--mystery:hover .vehicle-card__img--mystery::after { opacity: 0.85; }
-.vehicle-card--mystery .vehicle-card__body { display: none; }
-.vehicle-card--mystery .vehicle-card__ctas { display: none; }
+.vehicle-card--mystery:hover .vehicle-card__img-wrap::after { opacity: 1; }
 .phone-car__thumb--mystery {
   background: #111;
   position: relative;
