@@ -649,3 +649,55 @@ img { max-width: 100%; display: block; }
   .phone-frame { width: 280px; }
   .phone-screen { height: 520px; }
 }
+
+/* ── MYSTERY CARS ── */
+.vehicle-card__img--mystery {
+  background: linear-gradient(160deg, #0c0c0c 0%, #161616 100%);
+  position: relative;
+}
+.vehicle-card__img--mystery::before {
+  content: 'COMING SOON';
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  color: var(--gold);
+  background: rgba(0,0,0,0.75);
+  border: 1px solid rgba(212,175,55,0.35);
+  padding: 4px 9px;
+  border-radius: 2px;
+  z-index: 1;
+}
+.vehicle-card__img--mystery::after {
+  content: '?';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 88px;
+  font-weight: 700;
+  color: var(--gold);
+  opacity: 0.1;
+  line-height: 1;
+  pointer-events: none;
+}
+.phone-car__thumb--mystery {
+  background: #111;
+  position: relative;
+}
+.phone-car__thumb--mystery::after {
+  content: '?';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gold);
+  opacity: 0.55;
+}
