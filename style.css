@@ -660,30 +660,22 @@ img { max-width: 100%; display: block; }
   background: linear-gradient(160deg, #0c0c0c 0%, #161616 100%);
 }
 .vehicle-card__img--mystery::after {
-  content: '?';
+  content: 'COMING SOON';
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 88px;
-  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
   color: var(--gold);
-  opacity: 0.18;
-  line-height: 1;
+  opacity: 0.5;
   pointer-events: none;
-  filter: blur(4px);
-  transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease;
+  transition: opacity 0.4s ease;
 }
-.vehicle-card--mystery:hover .vehicle-card__img--mystery::after {
-  transform: translate(-50%, -58%) scale(1.12);
-  opacity: 0.28;
-  filter: blur(2px);
-}
-.vehicle-card--mystery .vehicle-card__name,
-.vehicle-card--mystery .vehicle-card__specs,
-.vehicle-card--mystery .vehicle-card__price { filter: blur(6px); user-select: none; pointer-events: none; }
-.vehicle-card--mystery .vehicle-card__bar { filter: blur(4px); user-select: none; }
+.vehicle-card--mystery:hover .vehicle-card__img--mystery::after { opacity: 0.85; }
+.vehicle-card--mystery .vehicle-card__body { display: none; }
 .vehicle-card--mystery .vehicle-card__ctas { display: none; }
 .phone-car__thumb--mystery {
   background: #111;
