@@ -659,22 +659,6 @@ img { max-width: 100%; display: block; }
 .vehicle-card__img--mystery {
   background: linear-gradient(160deg, #0c0c0c 0%, #161616 100%);
 }
-.vehicle-card__img--mystery::before {
-  content: 'COMING SOON';
-  position: absolute;
-  bottom: 14px;
-  left: 14px;
-  font-family: 'Inter', sans-serif;
-  font-size: 8px;
-  font-weight: 600;
-  letter-spacing: 2.5px;
-  color: var(--gold);
-  background: rgba(0,0,0,0.75);
-  border: 1px solid rgba(212,175,55,0.35);
-  padding: 4px 9px;
-  border-radius: 2px;
-  z-index: 1;
-}
 .vehicle-card__img--mystery::after {
   content: '?';
   position: absolute;
