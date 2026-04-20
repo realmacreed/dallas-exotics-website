@@ -700,17 +700,7 @@ img { max-width: 100%; display: block; }
 .vehicle-card--mystery .vehicle-card__specs,
 .vehicle-card--mystery .vehicle-card__price { filter: blur(6px); user-select: none; pointer-events: none; }
 .vehicle-card--mystery .vehicle-card__bar { filter: blur(4px); user-select: none; }
-.vehicle-card--mystery .vehicle-card__ctas { justify-content: center; }
-.vehicle-card--mystery .vehicle-card__ctas .btn { display: none; }
-.vehicle-card--mystery .vehicle-card__ctas::after {
-  content: 'COMING SOON';
-  font-family: 'Inter', sans-serif;
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 2.5px;
-  color: var(--gold);
-  opacity: 0.6;
-}
+.vehicle-card--mystery .vehicle-card__ctas { display: none; }
 .phone-car__thumb--mystery {
   background: #111;
   position: relative;
