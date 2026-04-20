@@ -716,3 +716,6 @@ img { max-width: 100%; display: block; }
   color: var(--gold);
   opacity: 0.55;
 }
+.phone-car--mystery .phone-car__name,
+.phone-car--mystery .phone-car__detail,
+.phone-car--mystery .phone-car__price { filter: blur(5px); user-select: none; }
