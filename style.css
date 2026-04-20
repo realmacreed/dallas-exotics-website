@@ -685,6 +685,10 @@ img { max-width: 100%; display: block; }
   line-height: 1;
   pointer-events: none;
 }
+.vehicle-card--mystery .vehicle-card__name,
+.vehicle-card--mystery .vehicle-card__specs,
+.vehicle-card--mystery .vehicle-card__price { filter: blur(6px); user-select: none; pointer-events: none; }
+.vehicle-card--mystery .vehicle-card__bar { filter: blur(4px); user-select: none; }
 .phone-car__thumb--mystery {
   background: #111;
   position: relative;
