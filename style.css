@@ -349,7 +349,7 @@ img { max-width: 100%; display: block; }
 }
 .vehicle-card__price {
   font-family: var(--ff-disp);
-  font-size: 1.15rem; font-weight: 700;
+  font-size: 1.45rem; font-weight: 700;
   color: var(--gold); white-space: nowrap; flex-shrink: 0;
 }
 .vehicle-card__price em { font-style: normal; font-family: var(--ff-body); font-size: 0.62rem; font-weight: 400; color: var(--smoke); }
@@ -658,7 +658,6 @@ img { max-width: 100%; display: block; }
 /* ── MYSTERY CARS ── */
 .vehicle-card__img--mystery {
   background: linear-gradient(160deg, #0c0c0c 0%, #161616 100%);
-  position: relative;
 }
 .vehicle-card__img--mystery::before {
   content: 'COMING SOON';
