@@ -85,7 +85,7 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 1px 0 var(--border-w);
 }
 .nav__inner {
-  max-width: var(--max-w); margin: 0 auto; padding: 0 32px;
+  max-width: var(--max-w); margin: 0 auto; padding: 0 20px 0 12px;
   height: 100%; display: flex; align-items: center;
   position: relative;
 }
