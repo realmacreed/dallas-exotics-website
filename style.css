@@ -34,15 +34,14 @@ ul { list-style: none; }
 
 /* ── LANGUAGE PICKER ── */
 .lang-picker {
-  position: fixed;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9999;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  margin-top: 24px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.8s 0.8s var(--ease-out) forwards;
 }
 .lang-picker__btn {
   display: flex;
@@ -625,12 +624,16 @@ body { top: 0 !important; }
   padding: 100px 40px;
 }
 .experience__inner {
-  max-width: 1200px;
+  max-width: 720px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  text-align: center;
+}
+.experience__list {
   align-items: center;
+}
+.experience__inner .section__sub {
+  margin-left: auto;
+  margin-right: auto;
 }
 .experience__list {
   margin: 28px 0 36px;
@@ -808,18 +811,57 @@ body { top: 0 !important; }
   color: rgba(240,236,228,0.3);
 }
 
+/* ── VIP EASTER EGG TOAST ── */
+.vip-toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 28px;
+  background: rgba(12,12,12,0.97);
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(201,162,39,0.25), 0 16px 48px rgba(0,0,0,0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  opacity: 0;
+  transition: transform 0.5s var(--ease-out), opacity 0.5s var(--ease-out);
+  pointer-events: none;
+  white-space: nowrap;
+}
+.vip-toast.vip-toast--show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.vip-toast__icon { font-size: 22px; flex-shrink: 0; }
+.vip-toast__title {
+  font-family: var(--ff-dallas);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: var(--gold);
+  margin-bottom: 2px;
+}
+.vip-toast__msg {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.vip-toast__msg strong { color: var(--text); }
+
 /* ── MOBILE ── */
 @media (max-width: 900px) {
-  .experience__inner { grid-template-columns: 1fr; gap: 48px; }
   .experience__visual { max-height: 320px; }
 }
 
 @media (max-width: 768px) {
   #nav {
-    grid-template-columns: auto 1fr auto;
     padding: 0 16px;
   }
-  .nav__logo { justify-self: start; }
+  .nav__logo { justify-self: center; }
   .nav__links {
     display: none;
     flex-direction: column;

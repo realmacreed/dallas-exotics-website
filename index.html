@@ -69,6 +69,26 @@
       <a href="tel:+12145550000" class="btn btn--gold btn--lg">Book Now</a>
       <a href="#fleet" class="btn btn--outline">View Fleet</a>
     </div>
+    <div class="lang-picker" id="langPicker">
+      <div class="lang-picker__dropdown" id="langDropdown">
+        <div class="lang-picker__option lang-picker__option--active" data-lang="en">English</div>
+        <div class="lang-picker__option" data-lang="ar">العربية</div>
+        <div class="lang-picker__option" data-lang="de">Deutsch</div>
+        <div class="lang-picker__option" data-lang="es">Español</div>
+        <div class="lang-picker__option" data-lang="fr">Français</div>
+        <div class="lang-picker__option" data-lang="he">עברית</div>
+        <div class="lang-picker__option" data-lang="it">Italiano</div>
+        <div class="lang-picker__option" data-lang="ja">日本語</div>
+        <div class="lang-picker__option" data-lang="pt">Português</div>
+        <div class="lang-picker__option" data-lang="ru">Русский</div>
+        <div class="lang-picker__option" data-lang="zh-CN">中文</div>
+      </div>
+      <button class="lang-picker__btn" id="langBtn" aria-label="Select language">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18M3 12h18"/></svg>
+        <span id="langLabel">English</span>
+        <svg class="lang-picker__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6-6 6 6"/></svg>
+      </button>
+    </div>
   </div>
 
   <div class="hero__scroll" aria-hidden="true"><span></span></div>
@@ -147,17 +167,16 @@
     <div class="experience__text reveal">
       <p class="section__eyebrow">The DallasExotics Way</p>
       <h2 class="section__title">More Than<br>a Rental</h2>
-      <p class="section__sub">We deliver your chosen exotic directly to your location — hotel, home, or terminal. No lot pickups, no queues.</p>
+      <p class="section__sub">We don't hand you keys at a counter. Your car arrives spotless, fueled, and ready — wherever you are in DFW.</p>
       <ul class="experience__list">
-        <li><span>✦</span> White-glove door delivery</li>
-        <li><span>✦</span> 24/7 concierge support</li>
-        <li><span>✦</span> DFW-wide delivery radius</li>
-        <li><span>✦</span> Flexible rental periods</li>
+        <li><span>✦</span> Delivered to your door, hotel, or terminal — zero lot pickups</li>
+        <li><span>✦</span> Personal handoff & full vehicle walkthrough on arrival</li>
+        <li><span>✦</span> 24/7 concierge — one text handles everything</li>
+        <li><span>✦</span> Same-day bookings available</li>
+        <li><span>✦</span> Flexible daily, weekend & extended stays</li>
+        <li><span>✦</span> Discreet, professional service every time</li>
       </ul>
       <a href="tel:+12145550000" class="btn btn--gold">Reserve Your Experience</a>
-    </div>
-    <div class="experience__visual reveal">
-      <img src="pics/IMG_4213.JPEG" alt="Corvette Z06" class="experience__img">
     </div>
   </div>
 </section>
@@ -232,28 +251,17 @@
 
 <div id="progress" class="progress" aria-hidden="true"></div>
 
-<!-- Language Picker -->
-<div id="google_translate_element" style="display:none"></div>
-<div class="lang-picker" id="langPicker">
-  <div class="lang-picker__dropdown" id="langDropdown">
-    <div class="lang-picker__option lang-picker__option--active" data-lang="en">English</div>
-    <div class="lang-picker__option" data-lang="ar">العربية</div>
-    <div class="lang-picker__option" data-lang="de">Deutsch</div>
-    <div class="lang-picker__option" data-lang="es">Español</div>
-    <div class="lang-picker__option" data-lang="fr">Français</div>
-    <div class="lang-picker__option" data-lang="he">עברית</div>
-    <div class="lang-picker__option" data-lang="it">Italiano</div>
-    <div class="lang-picker__option" data-lang="ja">日本語</div>
-    <div class="lang-picker__option" data-lang="pt">Português</div>
-    <div class="lang-picker__option" data-lang="ru">Русский</div>
-    <div class="lang-picker__option" data-lang="zh-CN">中文</div>
+<!-- Easter egg toast -->
+<div id="vipToast" class="vip-toast" aria-live="polite">
+  <span class="vip-toast__icon">🔑</span>
+  <div>
+    <div class="vip-toast__title">VIP Unlocked</div>
+    <div class="vip-toast__msg">Text <strong>VIP</strong> to get an exclusive rate on your next booking.</div>
   </div>
-  <button class="lang-picker__btn" id="langBtn" aria-label="Select language">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18M3 12h18"/></svg>
-    <span id="langLabel">English</span>
-    <svg class="lang-picker__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6-6 6 6"/></svg>
-  </button>
 </div>
+
+<!-- Google Translate (hidden) -->
+<div id="google_translate_element" style="display:none"></div>
 
 <script>
 function googleTranslateElementInit() {

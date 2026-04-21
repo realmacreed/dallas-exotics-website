@@ -34,6 +34,21 @@ navLinks.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => { navLinks.classList.remove('open'); setBurgerOpen(false); });
 });
 
+// ── VIP EASTER EGG ──
+const vipToast = document.getElementById('vipToast');
+const logoLink = document.querySelector('.nav__logo');
+let logoClicks = 0, vipTimer;
+logoLink.addEventListener('click', e => {
+  e.preventDefault();
+  if (++logoClicks >= 5) {
+    logoClicks = 0;
+    clearTimeout(vipTimer);
+    vipToast.classList.add('vip-toast--show');
+    vipTimer = setTimeout(() => vipToast.classList.remove('vip-toast--show'), 5000);
+  }
+});
+window.addEventListener('pagehide', () => clearTimeout(vipTimer), { once: true });
+
 // ── COMING SOON CARDS ──
 const soonNames = ['Lamborghini Urus','Ferrari 488','Porsche 911 GT3','McLaren 720S','Rolls-Royce Ghost','Bentley Continental','Mercedes AMG GT'];
 const fleetGrid = document.querySelector('.fleet__grid');
