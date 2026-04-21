@@ -197,8 +197,8 @@ body { top: 0 !important; }
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 1px 0 var(--border);
 }
-.nav__logo { justify-self: center; }
 .nav__links {
+  grid-column: 1;
   display: flex;
   align-items: center;
   gap: 32px;
@@ -213,7 +213,9 @@ body { top: 0 !important; }
   transition: color 0.2s;
 }
 .nav__links a:hover { color: var(--text); }
+.nav__logo { grid-column: 2; justify-self: center; }
 .nav__right {
+  grid-column: 3;
   justify-self: end;
   display: flex;
   align-items: center;
