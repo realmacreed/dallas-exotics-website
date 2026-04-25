@@ -34,32 +34,32 @@ navLinks.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => { navLinks.classList.remove('open'); setBurgerOpen(false); });
 });
 
-// ── PHONE REVEAL ──
-const phoneReveal = document.getElementById('phoneReveal');
-let phoneTimer;
-document.querySelectorAll('[data-action="contact"]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    clearTimeout(phoneTimer);
-    phoneReveal.classList.add('vip-toast--show');
-    phoneTimer = setTimeout(() => phoneReveal.classList.remove('vip-toast--show'), 5000);
-  });
-});
-window.addEventListener('pagehide', () => clearTimeout(phoneTimer), { once: true });
+// ── TOAST UTILITY ──
+function showToast(el, ref) {
+  clearTimeout(ref.t);
+  el.classList.add('vip-toast--show');
+  ref.t = setTimeout(() => el.classList.remove('vip-toast--show'), 5000);
+}
 
-// ── VIP EASTER EGG ──
-const vipToast = document.getElementById('vipToast');
-const logoLink = document.querySelector('.nav__logo');
-let logoClicks = 0, vipTimer;
+const phoneReveal = document.getElementById('phoneReveal');
+const vipToast    = document.getElementById('vipToast');
+const phoneRef    = {}, vipRef = {};
+
+document.querySelectorAll('[data-action="contact"]').forEach(btn => {
+  btn.addEventListener('click', () => showToast(phoneReveal, phoneRef));
+});
+
+const logoLink  = document.querySelector('.nav__logo');
+let logoClicks  = 0;
 logoLink.addEventListener('click', e => {
   e.preventDefault();
-  if (++logoClicks >= 5) {
-    logoClicks = 0;
-    clearTimeout(vipTimer);
-    vipToast.classList.add('vip-toast--show');
-    vipTimer = setTimeout(() => vipToast.classList.remove('vip-toast--show'), 5000);
-  }
+  if (++logoClicks >= 5) { logoClicks = 0; showToast(vipToast, vipRef); }
 });
-window.addEventListener('pagehide', () => clearTimeout(vipTimer), { once: true });
+
+window.addEventListener('pagehide', () => {
+  clearTimeout(phoneRef.t);
+  clearTimeout(vipRef.t);
+}, { once: true });
 
 // ── COMING SOON CARDS ──
 const soonNames = ['Lamborghini Urus','Ferrari 488','Porsche 911 GT3','McLaren 720S','Rolls-Royce Ghost','Bentley Continental','Mercedes AMG GT'];

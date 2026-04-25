@@ -840,7 +840,7 @@ body { top: 0 !important; }
   opacity: 1;
   pointer-events: auto;
 }
-.vip-toast__icon { font-size: 22px; flex-shrink: 0; }
+.vip-toast__icon { font-size: 22px; flex-shrink: 0; color: var(--gold); width: 20px; height: 20px; }
 .vip-toast__title {
   font-family: var(--ff-dallas);
   font-size: 1.1rem;
