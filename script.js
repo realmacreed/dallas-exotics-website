@@ -34,6 +34,18 @@ navLinks.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => { navLinks.classList.remove('open'); setBurgerOpen(false); });
 });
 
+// ── PHONE REVEAL ──
+const phoneReveal = document.getElementById('phoneReveal');
+let phoneTimer;
+document.querySelectorAll('[data-action="contact"]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    clearTimeout(phoneTimer);
+    phoneReveal.classList.add('vip-toast--show');
+    phoneTimer = setTimeout(() => phoneReveal.classList.remove('vip-toast--show'), 5000);
+  });
+});
+window.addEventListener('pagehide', () => clearTimeout(phoneTimer), { once: true });
+
 // ── VIP EASTER EGG ──
 const vipToast = document.getElementById('vipToast');
 const logoLink = document.querySelector('.nav__logo');

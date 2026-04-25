@@ -47,7 +47,7 @@
     <svg class="logo__emblem" viewBox="0 0 300 74" aria-hidden="true"><use href="#logo-emblem"/></svg>
   </a>
   <div class="nav__right">
-    <a href="tel:+12146001703" class="nav__cta">Book Now</a>
+    <button class="nav__cta" data-action="contact">Book Now</button>
     <button id="burger" class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -66,8 +66,8 @@
     <h1 class="hero__title">Drive the<br><em class="hero__title--accent">Extraordinary</em></h1>
     <p class="hero__sub">Premium exotic rentals delivered to your door, hotel, or terminal — anywhere in DFW.</p>
     <div class="hero__actions">
-      <a href="tel:+12146001703" class="btn btn--gold btn--lg">Book Now</a>
-      <a href="sms:+12146001703" class="btn btn--outline btn--lg">Text Us</a>
+      <button class="btn btn--gold btn--lg" data-action="contact">Book Now</button>
+      <button class="btn btn--outline btn--lg" data-action="contact">Text Us</button>
     </div>
     <div class="lang-picker" id="langPicker">
       <div class="lang-picker__dropdown" id="langDropdown">
@@ -149,8 +149,8 @@
         <div class="car-card__footer">
           <div class="car-card__price"><sup>$</sup>899<span>/day</span></div>
           <div class="car-card__actions">
-            <a href="tel:+12146001703" class="btn btn--gold btn--sm">Book Now</a>
-            <a href="sms:+12146001703" class="btn btn--ghost btn--sm">Text</a>
+            <button class="btn btn--gold btn--sm" data-action="contact">Book Now</button>
+            <button class="btn btn--ghost btn--sm" data-action="contact">Text</button>
           </div>
         </div>
       </div>
@@ -176,7 +176,7 @@
         <li><span>✦</span> Flexible daily, weekend & extended stays</li>
         <li><span>✦</span> Discreet, professional service every time</li>
       </ul>
-      <a href="tel:+12146001703" class="btn btn--gold">Reserve Your Experience</a>
+      <button class="btn btn--gold" data-action="contact">Reserve Your Experience</button>
     </div>
   </div>
 </section>
@@ -250,6 +250,15 @@
 </footer>
 
 <div id="progress" class="progress" aria-hidden="true"></div>
+
+<!-- Phone reveal toast -->
+<div id="phoneReveal" class="vip-toast" aria-live="polite">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold);flex-shrink:0"><path d="M2 6.5C2 14.5 9.5 22 17.5 22l1.5-3-3-1.5-1 1c-2-1-4-3-5-5l1-1L9.5 9.5 6.5 8.5C5.8 9.5 2 8.5 2 6.5Z"/></svg>
+  <div>
+    <div class="vip-toast__title">Call or Text Us</div>
+    <div class="vip-toast__msg"><strong>214-600-1703</strong></div>
+  </div>
+</div>
 
 <!-- Easter egg toast -->
 <div id="vipToast" class="vip-toast" aria-live="polite">
